@@ -2,6 +2,9 @@ package entity;
 
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.ListIterator;
 
 public class Product {
     private BigDecimal price;
@@ -38,4 +41,9 @@ public class Product {
     }
 
 
+    public class SortByKkal implements Comparator<Product> {
+       public int compare(Product o1, Product o2) {
+              return (int) (o1.getCalories() - o2.getCalories());
+        }
+    }
 }
