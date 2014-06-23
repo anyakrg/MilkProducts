@@ -1,9 +1,11 @@
 package com.epam.as.milkProduct.entity;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class DeliveryFactory {
+public class DeliveryFactory implements Cloneable{
     private static Random random = new Random();
 
     private DeliveryFactory() {
@@ -20,3 +22,4 @@ public class DeliveryFactory {
     }
 
 }
+

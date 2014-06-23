@@ -4,13 +4,19 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.Random;
 
-public abstract class Cheese extends Product {
+public  class Cheese extends Product {
     private Type type;
     private BigDecimal price;
 
 
     public Cheese(Type type, int fatPercentage, int calories, BigDecimal price) {
         super(price, fatPercentage, calories);
+        this.type = type;
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return 0;
     }
 
     public enum Type {
@@ -27,22 +33,38 @@ public abstract class Cheese extends Product {
         return Type.values()[pick];
     }
 
-    public Type getType() {
-        return type;
-    }
-    public void setType(Type type) {
-        this.type = type;
-    }
-
     public static Type randomCheeseType() {
         int pick = new Random().nextInt(Type.values().length);
         return Type.values()[pick];
     }
 
     @Override
+    public BigDecimal getCurrentCost() {
+        return null;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cheese)) return false;
+
+        Cheese cheese = (Cheese) o;
+
+        if (type != cheese.type) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return type.hashCode();
+    }
+    @Override
     public String toString() {
         return "Cheese{" +
-                "type=" + type +
-                '}';
+                "type=" + type + " " +
+                "fatPercentage=" + getFatPercentage() + " " +
+                "calories=" + getCalories() + " " +
+                "price=" + getPrice() + " " +
+                '}' + "\n";
     }
 }

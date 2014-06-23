@@ -15,9 +15,18 @@ public class Delivery implements Comparable<Delivery>, Cloneable {
         products.add(product);
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     @Override
     public int compareTo(Delivery o) {
         return 0;
+
     }
 
     @Override

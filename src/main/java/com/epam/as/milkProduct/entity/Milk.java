@@ -3,19 +3,20 @@ package com.epam.as.milkProduct.entity;
 import java.math.BigDecimal;
 import java.util.Random;
 
-public abstract class Milk extends Product {
+public  class Milk extends Product {
 
-    private static milkType milkType;
+    private  MilkType milkType;
 
-    public Milk(milkType milkType, int fatPercentage,
+    public Milk(MilkType milkType, int fatPercentage,
                 int calories,
                 BigDecimal price) {
         super(price, fatPercentage, calories);
+        this.milkType = milkType;
     }
 
-    public static milkType randomType() {
-        int pick = new Random().nextInt(Milk.milkType.values().length);
-        return milkType.values()[pick];
+    public static MilkType randomType() {
+        int pick = new Random().nextInt(Milk.MilkType.values().length);
+        return MilkType.values()[pick];
     }
 
     @Override
@@ -23,7 +24,12 @@ public abstract class Milk extends Product {
         return null;
     }
 
-    public enum milkType {
+    @Override
+    public int compareTo(Product o) {
+        return 0;
+    }
+
+    public enum MilkType {
         SOFT, PROCESSED, HARD;
 
         @Override
@@ -36,8 +42,11 @@ public abstract class Milk extends Product {
     @Override
     public String toString() {
         return "Milk{" +
-                "types of Milk=" + milkType +
-                '}';
+                "type=" + milkType + " " +
+                "Calories=" + getCalories() + " " +
+                "fatPercentage=" + getFatPercentage() + " " +
+                "price=" + getPrice() + " " +
+                '}' + "\n";
     }
 
 }
