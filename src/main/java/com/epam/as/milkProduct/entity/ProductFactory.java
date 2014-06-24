@@ -10,9 +10,9 @@ public class ProductFactory {
     private static Milk createRandomMilk() {
         final Milk.MilkType milkType = Milk.randomType();
         int fatPercentage;
-        fatPercentage = random.nextInt();
+        fatPercentage = random.nextInt(50);
         int calories;
-        calories = random.nextInt();
+        calories = random.nextInt(50);
         BigDecimal price = BigDecimal.valueOf(random.nextInt(100) + 5);
         Milk milk = new Milk(milkType, fatPercentage, calories, price) {
             @Override
@@ -26,9 +26,9 @@ public class ProductFactory {
     private static Cheese createRandomCheese() {
         Cheese.Type type = Cheese.Type.values()[random.nextInt(Cheese.Type.values().length)];
         int fatPercentage;
-        fatPercentage = random.nextInt();
+        fatPercentage = random.nextInt(50);
         int calories;
-        calories = random.nextInt();
+        calories = random.nextInt(50);
         BigDecimal price = BigDecimal.valueOf(random.nextInt(100) + 5);
         Cheese cheese = new Cheese(type, fatPercentage, calories, price) {
             @Override
