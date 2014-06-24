@@ -19,6 +19,22 @@ public  class Cheese extends Product {
         return 0;
     }
 
+//    public Type getType() {
+//        return type;
+//    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
     public enum Type {
         SHIP, GOAT, COW, MOOSE;
 
@@ -40,7 +56,7 @@ public  class Cheese extends Product {
 
     @Override
     public BigDecimal getCurrentCost() {
-        return null;
+        return price;
     }
     @Override
     public boolean equals(Object o) {

@@ -11,13 +11,13 @@ public class DeliveryFactory implements Cloneable{
     private DeliveryFactory() {
     }
 
-    public static Delivery createRandomDelivery(int qt) {
+    public static Delivery createRandomDelivery(int qt) throws CloneNotSupportedException {
         Delivery result = new Delivery();
         for (int i = 0; i < qt; i++) result.addProduct(ProductFactory.createRandomProduct());
         return result;
     }
 
-    public static Delivery createRandomDelivery() {
+    public static Delivery createRandomDelivery() throws CloneNotSupportedException{
         return createRandomDelivery(random.nextInt(10) + 1);
     }
 

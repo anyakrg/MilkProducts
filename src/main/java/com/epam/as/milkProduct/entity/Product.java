@@ -17,7 +17,7 @@ public abstract class Product implements Comparable<Product> {
     }
     public DecimalFormat format = new DecimalFormat("###.##");
     private Type type;
-    private BigDecimal price;
+    BigDecimal price;
     private int fatPercentage;
     private int calories;
 
@@ -28,9 +28,9 @@ public abstract class Product implements Comparable<Product> {
 
     public abstract BigDecimal getCurrentCost();
 
-    public Type getType() {
-        return type;
-    }
+//    public Cheese.Type getType() {
+//        return type;
+//    }
 
     public void setType(Type type) {
         this.type = type;

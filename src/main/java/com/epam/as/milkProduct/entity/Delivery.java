@@ -3,7 +3,7 @@ package com.epam.as.milkProduct.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Delivery implements Comparable<Delivery>, Cloneable {
+public class Delivery implements Cloneable {
 
     List<Product> products = new ArrayList<Product>();
 
@@ -24,10 +24,15 @@ public class Delivery implements Comparable<Delivery>, Cloneable {
     }
 
     @Override
-    public int compareTo(Delivery o) {
-        return 0;
-
+    public Object clone() throws CloneNotSupportedException {
+        Delivery clonedCandyBox = (Delivery) super.clone();
+        clonedCandyBox = new Delivery();
+        for (Product product : products) {
+            clonedCandyBox.addProduct((Product) product.clone());
+        }
+        return clonedCandyBox;
     }
+
 
     @Override
     public String toString() {

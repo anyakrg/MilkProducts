@@ -14,6 +14,14 @@ public  class Milk extends Product {
         this.milkType = milkType;
     }
 
+    public MilkType getMilkType() {
+        return milkType;
+    }
+
+    public void setMilkType(MilkType milkType) {
+        this.milkType = milkType;
+    }
+
     public static MilkType randomType() {
         int pick = new Random().nextInt(Milk.MilkType.values().length);
         return MilkType.values()[pick];
@@ -21,7 +29,7 @@ public  class Milk extends Product {
 
     @Override
     public BigDecimal getCurrentCost() {
-        return null;
+        return price;
     }
 
     @Override
