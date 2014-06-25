@@ -25,12 +25,12 @@ public class Delivery implements Cloneable {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        Delivery clonedCandyBox = (Delivery) super.clone();
-        clonedCandyBox = new Delivery();
+        Delivery clonedDelivery = (Delivery) super.clone();
+        clonedDelivery = new Delivery();
         for (Product product : products) {
-            clonedCandyBox.addProduct((Product) product.clone());
+            clonedDelivery.addProduct((Product) product.clone());
         }
-        return clonedCandyBox;
+        return clonedDelivery;
     }
 
 
